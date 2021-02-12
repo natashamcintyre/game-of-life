@@ -3,7 +3,7 @@ class GameOfLife {
   tick(board) {
     let testingCell = board[1][1]
     let liveCells = board.flat().reduce((a, b) => a + b)
-    if (this.willSurvive(testingCell, liveCells)) {
+    if (this.willBeLiveNextTick(testingCell, liveCells)) {
       return 1
     } else {
       return 0
@@ -14,7 +14,7 @@ class GameOfLife {
     return cell === 1
   }
 
-  willSurvive(cell, neighbours) {
+  willBeLiveNextTick(cell, neighbours) {
     if (this.isAlive(cell)) {
       neighbours -= 1;
       return neighbours === 2 || neighbours === 3

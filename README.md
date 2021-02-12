@@ -37,3 +37,9 @@ Input | Output
 [[1, 1], [0, 1]] | [[1, 1], [1, 1]]
 [[1, 0], [0, 1]] | [[0, 0], [0, 0]]
 [[1, 1, 1], [1, 1, 1], [1, 1, 1]] | [[1, 0, 1], [0, 0, 0], [1, 0, 1]]
+
+After doing several tests and exploring the implementation, I decided that actually the most straightforward test was the center square of a 3x3 grid, which looks at the neighbours, counts 1s and deduces whether that square will be alive next tick or not. I believe this should work for all inputs of a 3 x 3 grid.
+
+I can now take 2 routes:
+- Expand the grid and iterate through the central squares.
+- Work out how to calculate the edge squares
