@@ -1,0 +1,39 @@
+Conway's Game of Life
+game of life example
+
+The Game of life is a zero player game developed in the 70s by John Horton Conway. Check out the wikipedia article for a full description. The evolving state of the game is determined by the initial configuration - some configurations become infinitely evolving constellations, others eventually evolve into a stable patterns, whilst others die off completely. It is commonly used as a tech test as it can be solved in many different ways that clearly show the level of the programmer.
+
+The Brief
+The rules are as follows:
+
+The game evolves in turns, commonly known as 'ticks'.
+All changes occur at the same time.
+Any live cell with 2 or 3 live neighbours survives until next tick.
+Any live cell with less than 2 live neighbours dies (underpopulation).
+Any live cell with more than 3 live neighbours dies (overpopulation).
+Any dead cell with exactly 3 neighbours becomes a live cell (reproduction).
+Write code that is capable of calculating each new generation, given a starter board. Although you don't have to build a visualisation tool to be able to see the evolution, it should be easy to extend the program to add on a web or command line ui.
+
+For each tick - iterate through the 'grid' (array?). For each 'square', look at:
+  - same row, column ± 1
+  - same column, row ± 1
+  - row + 1, column ± 1
+  - row - 1, column ± 1
+and count the number of 1s (liveCount).
+  if liveCount == 2
+    if currentSquare.isLive?
+      1
+    else
+      0
+  elsif liveCount == 3
+    1
+  else
+    0
+Do this for all cells, do not actually update values between each iteration.
+
+Input | Output
+-|-
+[1] | [0]
+[[1, 1], [0, 1]] | [[1, 1], [1, 1]]
+[[1, 0], [0, 1]] | [[0, 0], [0, 0]]
+[[1, 1, 1], [1, 1, 1], [1, 1, 1]] | [[1, 0, 1], [0, 0, 0], [1, 0, 1]]
