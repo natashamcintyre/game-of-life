@@ -43,3 +43,7 @@ After doing several tests and exploring the implementation, I decided that actua
 I can now take 2 routes:
 - Expand the grid and iterate through the central squares.
 - Work out how to calculate the edge squares
+
+I'm not sure if this approach is the correct approach for TDD as I'm focusing on just one cell, as opposed to the input of a whole grid. I think this is an "Inside Out" approach?
+
+Perhaps my approach should actually be considering a 3 x 3 grid only, but I don't think the game of life has borders so perhaps this would not be the correct approach. I think I will therefore expand the grid to a 4 x 4 square and focus on the middle squares.

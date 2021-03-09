@@ -1,8 +1,12 @@
 class GameOfLife {
 
-  tick(board) {
-    let testingCell = board[1][1]
-    let liveCells = board.flat().reduce((a, b) => a + b)
+  nextBoard (board) {
+    return [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+  }
+
+  tick (snapshot) {
+    let testingCell = snapshot[1][1];
+    let liveCells = snapshot.flat().reduce((a, b) => a + b) - testingCell;
     if (this.willBeLiveNextTick(testingCell, liveCells)) {
       return 1
     } else {
@@ -10,16 +14,15 @@ class GameOfLife {
     }
   }
 
-  isAlive(cell) {
-    return cell === 1
+  isLive(cell) {
+    return cell === 1;
   }
 
   willBeLiveNextTick(cell, neighbours) {
-    if (this.isAlive(cell)) {
-      neighbours -= 1;
-      return neighbours === 2 || neighbours === 3
+    if (this.isLive(cell)) {
+      return neighbours === 2 || neighbours === 3;
     } else {
-      return neighbours === 3
+      return neighbours === 3;
     }
   }
 
